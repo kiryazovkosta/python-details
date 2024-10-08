@@ -1,0 +1,1 @@
+print("It's warm outside!" if input() == "sunny" else "It's cold outside!")
