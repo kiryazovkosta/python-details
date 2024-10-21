@@ -1,5 +1,4 @@
-def calculate_price(capsules, price_per_capsule, days)-> float:
-    return capsules * price_per_capsule * days
+calculate_price = lambda capsules, price_per_capsule, days : capsules * price_per_capsule * days
 
 def validate(capsules, price_per_capsule, days) -> bool:
     if not 0.01 <= price_per_capsule <= 100.00:
