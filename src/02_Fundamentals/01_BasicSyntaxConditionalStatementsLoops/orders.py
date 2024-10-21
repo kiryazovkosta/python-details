@@ -10,6 +10,7 @@ def validate(capsules, price_per_capsule, days) -> bool:
         return False
     
     return True
+    
 
 
 def main():
