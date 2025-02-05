@@ -3,8 +3,10 @@ def print_board(matrix: []) -> None:
         print(''.join(matrix[row_index]))
 
 def main():
+    exploded = False
+
     rows, columns = [int(n) for n in input().split(", ")]
-    player_row, player_col = -1, -1
+    player_row, player_col, player_start_row, player_start_col = -1, -1, -1, -1
     board = []
     for row_index in range(rows):
         board.append(list(input()))
@@ -12,6 +14,8 @@ def main():
             if board[row_index][col_index] == "C":
                 player_row = row_index
                 player_col = col_index
+                player_start_row = row_index
+                player_start_col = col_index
 
     commands = {
         "left": (0, -1),
@@ -26,14 +30,22 @@ def main():
         if command == "defuse":
             if board[player_row][player_col] != "B":
                 seconds -= 2
+                if seconds == 0:
+                    board[player_row][player_col] = "*"
+                    exploded = True
+                    break
             else:
                 seconds -= 4
                 if seconds >= 0:
                     board[player_row][player_col] = "D"
+                    print("Counter-terrorist wins!")
+                    print(f"Bomb has been defused: {seconds} second/s remaining.")
                 else:
                     board[player_row][player_col] = "X"
+                    exploded = True
                 break
         else:
+            seconds -= 1
             r, y = commands[command]
             new_row_index =  + player_row + r
             new_col_index = commands[command][1] + player_col
@@ -52,10 +64,18 @@ def main():
                 elif board[new_row_index][new_col_index] == "T":
                     board[player_row][player_col] = "*"
                     board[new_row_index][new_col_index] = "*"
+                    print("Terrorists win!")
                     break
+            if seconds == 0:
+                exploded = True
 
-        print_board(board)
+        #print_board(board)
 
+    board[player_start_row][player_start_col] = "C"
+    if exploded:
+        print("Terrorists win!")
+        print("Bomb was not defused successfully!")
+        print(f"Time needed: {abs(seconds)} second/s.")
     print_board(board)
 
 if __name__ == "__main__":
