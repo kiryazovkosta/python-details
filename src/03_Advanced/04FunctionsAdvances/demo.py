@@ -45,6 +45,10 @@ from keyword import kwlist
 # result = sorted(data.items(), key=lambda kvp: kvp[0], reverse=True)
 # print(result)
 
-response = requests.get('https://judge.softuni.org/Contests/Compete/Index/1839#7')
-print(response.status_code)
-print(*response)
+# response = requests.get('https://judge.softuni.org/Contests/Compete/Index/1839#7')
+# print(response.status_code)
+# print(*response)
+
+numbers = {'a': 1, 'bb': 2, 'ccc': 3, 'dddd': 4, 'eeeee': 5, 'ffffff': 6}
+odd_sum = sum(value for key, value in numbers.items() if len(key) % 2 == 0)
+print(odd_sum)
