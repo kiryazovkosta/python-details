@@ -9,10 +9,10 @@ enabled = True
 pattern = r"((?:do|don't|mul))\((?:(\d{1,3}),(\d{1,3}))?\)"
 matches = re.findall(pattern, content)
 for match in matches:
-    (oper, first, second) = match
-    if oper == "do":
+    (operation, first, second) = match
+    if operation == "do":
         enabled = True
-    elif oper == "don't":
+    elif operation == "don't":
         enabled = False
     else:
         if enabled:
