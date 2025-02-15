@@ -1,0 +1,7 @@
+TXT document files are plain text files that contain only unformatted text.
+They do not contain any formatting or layout information, and are often used for
+storing simple text documents or data sets. They can be opened and edited with
+any text editor, such as Notepad on a Windows computer or TextEdit on a Mac.
+They are commonly used for storing things like notes, lists, scripts, or code
+snippets, and are often used in combination with other file formats, such as
+HTML or XML, to store data that will be displayed on the web or in other applications.
