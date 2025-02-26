@@ -14,12 +14,27 @@ class Section:
         return f"Task {new_task.details()} is added to the section"
 
     def complete_task(self, task_name: str):
-        self.tasks.index(task_name)
-        task = next((t for t in self.tasks if t["name"] == task_name), None)
+        task = next((t for t in self.tasks if t.name == task_name), None)
         if task:
             task.completed = True
             return f"Completed task {task_name}"
         else:
             return f"Could not find task with the name {task_name}"
+
+    def clean_section(self):
+        initial_count = len(self.tasks)
+        self.tasks = [task for task in self.tasks if not task.completed]
+        cleared_count = initial_count - len(self.tasks)
+        return f"Cleared {cleared_count} tasks."
+
+    def view_section(self):
+        result = [f"Section {self.name}:"]
+        for task in self.tasks:
+            result.append(task.details())
+        return '\n'.join(result)
+
+
+
+
 
 
