@@ -24,12 +24,35 @@ class Teacher(Person):
 #     def eat(self):
 #         return "eating"
 
-t = Teacher('name', 25, 12000)
-t.eat()
+# t = Teacher('name', 25, 12000)
+# t.eat()
+#
+# class Student(Person):
+#     pass
+#
+# s = Student('student', 35)
+# print(s.get_person())
+# print(s.__str__())
 
-class Student(Person):
-    pass
+class A:
+    def __init__(self, a):
+        self.a = a
 
-s = Student('student', 35)
-print(s.get_person())
-print(s.__str__())
+    def play():
+        return "a"
+
+class B:
+    def __init__(self, b):
+        self.b = b
+
+    def play():
+        return "b"
+
+class C(A, B):
+    def __init__(self, a, b):
+        super().__init__(a)
+        B.__init__(self, b)
+
+c = C
+print(c)
+print(c.play())
