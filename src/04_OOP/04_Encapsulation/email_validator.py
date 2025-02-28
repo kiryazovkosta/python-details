@@ -14,7 +14,7 @@ class EmailValidator:
         · validate(email) - using the three methods returns whether the email is valid (True/False)
     """
 
-    def __init__(self, min_length, mails, domains):
+    def __init__(self, min_length: int, mails: list[str], domains: list[str]):
         self.min_length = min_length
         self.mails = mails
         self.domains = domains
@@ -32,20 +32,15 @@ class EmailValidator:
         if email.count("@") != 1 or email.count(".") != 1:
             return False
         name, host = email.split('@')
-        if not self.__is_name_valid(name):
-            return False
         mail, domain = host.split(".")
-        if not self.__is_mail_valid(mail):
-            return False
-        if not self.__is_domain_valid(domain):
-            return False
-
-        return True
+        return (self.__is_name_valid(name)
+                and  self.__is_mail_valid(mail)
+                and self.__is_domain_valid(domain))
 
 
-mails = ["gmail", "softuni"]
-domains = ["com", "bg"]
-email_validator = EmailValidator(6, mails, domains)
+valid_mails = ["gmail", "softuni"]
+valid_domains = ["com", "bg"]
+email_validator = EmailValidator(6, valid_mails, valid_domains)
 print(email_validator.validate("pe77er@gmail.com"))
 print(email_validator.validate("georgios@gmail.net"))
 print(email_validator.validate("stamatito@abv.net"))
