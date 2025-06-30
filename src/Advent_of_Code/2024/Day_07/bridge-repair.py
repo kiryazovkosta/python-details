@@ -69,11 +69,8 @@ def second(lines: list[str]) -> int:
         items = line.split(":")
         checked_sum = int(items[0])
         numbers = [int(n) for n in items[1].strip().split()]
-        if validate_numbers(numbers, checked_sum):
+        if validate_with_concatenated_numbers(numbers, checked_sum):
             total_sum += checked_sum
-        else:
-            if validate_with_concatenated_numbers(numbers, checked_sum):
-                total_sum += checked_sum
     return total_sum
 
 def main():
