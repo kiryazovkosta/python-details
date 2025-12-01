@@ -50,9 +50,8 @@ def second(filename: str):
 
 
 def main():
-    print("Part 1 (input.txt):", first('Day01/input.txt'))
-    print("Part 2 (test.txt):", second('Day01/test.txt'))
-    print("Part 2 (input.txt):", second('Day01/input.txt'))
+    print(f"Part 1 (input.txt): {first('Day01/input.txt')}")
+    print(f"Part 2 (input.txt): {second('Day01/input.txt')}")
 
 if __name__ == "__main__":
     main()
