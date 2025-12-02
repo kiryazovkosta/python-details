@@ -10,10 +10,10 @@ def first(filename: str):
     content = read_input(filename)
     records = [(l[0], int(l[1:])) for l in content]
     for direction, steps in records:
-        if direction == "R":
-            index = (index + steps) % 100
-        else:
-            index = (index - steps) % 100
+        if direction == "L":
+            steps = steps * -1
+
+        index = (index + steps) % 100
         
         if index == 0:
             counter = counter + 1
@@ -51,7 +51,7 @@ def second(filename: str):
 
 def main():
     print(f"Part 1 (input.txt): {first('Day01/input.txt')}")
-    print(f"Part 2 (input.txt): {second('Day01/input.txt')}")
+    print(f"Part 2 (input.txt): {second('Day01/test.txt')}")
 
 if __name__ == "__main__":
     main()
