@@ -22,3 +22,7 @@ def read_single(filename: str) -> str:
         content = file.readline().strip()
 
     return content
+
+def print_matrix(matrix, delimiter) -> None:
+    for row in range(len(matrix)):
+        print(delimiter.join(matrix[row]))
