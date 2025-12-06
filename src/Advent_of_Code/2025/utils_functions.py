@@ -1,6 +1,6 @@
 import os
 
-def read_input(filename: str) -> list[str]:
+def read_input(filename: str, strip: bool = True) -> list[str]:
     '''
     Read text file and returns all lines as list of strings
     '''
@@ -8,7 +8,10 @@ def read_input(filename: str) -> list[str]:
     current_directory = os.getcwd()
     file_path = os.path.join(current_directory, filename)
     with open(file_path, "r", encoding="utf-8") as file:
-        content = [line.strip() for line in file.readlines()]
+        content = file.readlines()
+
+    if strip:
+        content = [line.strip() for line in content]
 
     return content
 
